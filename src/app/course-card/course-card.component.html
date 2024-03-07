@@ -1,0 +1,33 @@
+<!-- <p>course-card works!</p> -->
+<div class="course-card">
+
+    <div class="course-title">
+        {{index +'. '+course.description}}
+    </div>
+
+    <img width="300" alt="Angular Logo"
+         [src]="course.iconUrl">
+
+    <!-- <div class="course-description">
+        {{course.longDescription}}
+    </div> -->
+
+    <div class="course-catagory">
+        @switch(course.category) {
+            @case("BEGINNER"){
+                <div class="category">Beginer</div>
+            }
+
+            @default {
+                <div class="category">{{course.category | titlecase}}</div>
+            }
+            
+        }
+    </div>
+
+    <ng-content select="div"></ng-content>
+
+    <button (click)="clickEvent()">View course</button>
+
+</div>
+
